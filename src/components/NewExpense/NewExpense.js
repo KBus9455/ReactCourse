@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
@@ -11,10 +11,18 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  const [showAddExpense, setShowAddExpense] = useState(false);
+  const showAddExpenseHandler = () => {
+    showAddExpense === true
+      ? setShowAddExpense(false)
+      : setShowAddExpense(true);
+  };
+
   return (
     <div className="new-expense">
       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
 };
+
 export default NewExpense;
