@@ -9,6 +9,7 @@ const NewExpense = (props) => {
       id: Math.random().toString(),
     };
     props.onAddExpense(expenseData);
+    showAddExpenseHandler();
   };
 
   const [showAddExpense, setShowAddExpense] = useState(false);
@@ -27,7 +28,7 @@ const NewExpense = (props) => {
       {showAddExpense === true && (
         <ExpenseForm
           onSaveExpenseData={saveExpenseDataHandler}
-          onCancelAddExpense={showAddExpenseHandler}
+          hideAddExpense={showAddExpenseHandler}
         />
       )}
     </div>
